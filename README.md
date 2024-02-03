@@ -1,2 +1,4 @@
 # bookbot
-bookbot project for boot.dev
+This is my first project in GitHub, created for Boot.Dev
+
+with ❤️ by nahu

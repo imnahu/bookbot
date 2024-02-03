@@ -16,7 +16,27 @@ def main():
                 letters[lower_char] = 1
         return letters
     
-    print(f"There are {count_words(file_contents)} words in this text")
-    print(f"Here are the characters and the amount of times they appear in the text {count_letters(file_contents)}")
+    def dict_to_list(dict):
+        list_dict = []
+        for elemn in dict:
+            if elemn.isalpha():
+                new_dict = {"char" : elemn, "amnt" : dict[elemn]}
+                list_dict.append(new_dict)
+        return list_dict
+    
+    def sort_desc(list):
+        return sorted(list, key=lambda x: x['amnt'], reverse=True)
+    
+    def report():
+        chardic = count_letters(file_contents)
+        charlist = dict_to_list(chardic)
+        sorted_charlist = sort_desc(charlist)
+        print("---- BEGIN OF FRANKSTEIN REPORT ----")
+        print(f"{count_words(file_contents)} words found in the text.\n")
+        for char in sorted_charlist:
+            print(f"character '{char['char']}' was found {char['amnt']} times")
+        print("---- END OF REPORT ----")
+
+    report()
 
 main()
